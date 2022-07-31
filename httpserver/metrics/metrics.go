@@ -7,7 +7,7 @@ import (
 )
 
 const (
-	MetricsNamespace = "ben-httpserver"
+	MetricsNamespace = "ben_httpserver"
 )
 
 var (
