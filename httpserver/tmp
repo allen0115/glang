@@ -1,0 +1,1000 @@
+   32  ETCD_VER=v3.4.17
+   33  DOWNLOAD_URL=https://github.com/etcd-io/etcd/releases/download
+   34  rm -f /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz
+   35  rm -rf /tmp/etcd-download-test && mkdir -p /tmp/etcd-download-test
+   36  curl -L ${DOWNLOAD_URL}/${ETCD_VER}/etcd-${ETCD_VER}-linux-amd64.tar.gz -o /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz
+   37  curl github.com
+   38  curl github.com -v
+   39  ping github.com
+   40  curl -L ${DOWNLOAD_URL}/${ETCD_VER}/etcd-${ETCD_VER}-linux-amd64.tar.gz -o /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz
+   41  tar xzvf /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz -C /tmp/etcd-download-test --strip-components=1
+   42  cd /tmp/
+   43  ll
+   44  cd etcd-download-test/
+   45  ll
+   46  etcd --listen-client-urls 'http://localhost:12379'  --advertise-client-urls 'http://localhost:12379'  --listen-peer-urls 'http://localhost:12380'  --initial-advertise-peer-urls 'http://localhost:12380'  --initial-cluster 'default=http://localhost:12380'
+   47  ./etcd --listen-client-urls 'http://localhost:12379'  --advertise-client-urls 'http://localhost:12379'  --listen-peer-urls 'http://localhost:12380'  --initial-advertise-peer-urls 'http://localhost:12380'  --initial-cluster 'default=http://localhost:12380'
+   48  alias etcdctl='etcdctl --endpoints=localhost:12379'
+   49  etcdctl watch --prefix /
+   50  export PATH=$PATH:/tmp/etcd-download-test/
+   51  etcdctl watch --prefix /
+   52  etcdctl member list --write-out=table --endpoints=localhost:12379
+   53  cd /tmp/etcd-download-test/
+   54  ll
+   55  etcdctl member list --write-out=table --endpoints=localhost:12379
+   56  ./etcdctl member list --write-out=table --endpoints=localhost:12379
+   57  etcdctl --endpoints=localhost:12379 put /key1 val1
+   58  etcdctl --endpoints=localhost:12379 put /key2 val2
+   59  env
+   60  echo $PATH
+   61  ll
+   62  pwd
+   63  export PATH=$PATH:/tmp/etcd-download-test/
+   64  etcdctl 
+   65  etcdctl --endpoints=localhost:12379 put /key1 val1
+   66  etcdctl --endpoints=localhost:12379 put /key2 val2
+   67  etcdctl --endpoints=localhost:12379 get --prefix /
+   68  etcdctl --endpoints=localhost:12379 get --prefix / --keys-only
+   69  etcdctl --endpoints=localhost:12379 watch --prefix /
+   70  etcdctl member list --write-out=table --endpoints=localhost:12379
+   71  docker run -d registry.aliyuncs.com/google_containers/etcd:3.5.0-0 /usr/local/bin/etcd
+   72  sudo docker run -d registry.aliyuncs.com/google_containers/etcd:3.5.0-0 /usr/local/bin/etcd
+   73  docker ps |grep etcd
+   74  sudo docker ps |grep ectd
+   75  sudo docker ps|grep etcd
+   76  sudo docker exec -it 138ebbc3d744 sh
+   77  ps axu|grep ectd
+   78  etcdctl --endpoints=localhost:12379 get x
+   79  etcdctl --endpoints=localhost:12379 put x 1111
+   80  etcdctl --endpoints=localhost:12379 get x
+   81  etcdctl --endpoints=localhost:12379 get x -wjson
+   82  etcdctl --endpoints=localhost:12379 member list
+   83  etcdctl member list --endpoints=localhost:12379
+   84  etcdctl member list --write-out=table  --endpoints=localhost:12379
+   85  etcdctl --endpoints=localhost:12379 get x -wjson
+   86  etcdctl --endpoints=localhost:12379 set x 23424234
+   87  etcdctl --endpoints=localhost:12379 put x 23424234
+   88  etcdctl --endpoints=localhost:12379 get x -wjson
+   89  alias etcdctl=etcdctl --endpoints=localhost:12379
+   90  etcdctl get x
+   91  etcdctl --endpoints=localhost:12379 get x -wjson
+   92  etcdctl --endpoints=localhost:12379 get x 
+   93  alias --help
+   94  alias
+   95  alias etcdctl='etcdctl --endpoints=localhost:12379'
+   96  alias
+   97  etcdctl get x
+   98  etcdctl put /a 1111
+   99  etcdctl put /b 222
+  100  etcdctl put /a/b/c 444
+  101  etcdctl get --prefix /
+  102  etcdctl get --prefix /a
+  103  etcdctl get --prefix /a/b
+  104  etcdctl get --prefix /a/
+  105  etcdctl put /a 4444
+  106  etcdctl put /a/b 9
+  107  etcdctl put /abc 22222
+  108  etcdctl get /a -wjson
+  109  ectdctl get /a --rev=4
+  110  etcdctl put /abc 22222
+  111  etcdctl get /a --rev=4
+  112  etcdctl get /a --rev=1
+  113  etcdctl get /a --rev=2
+  114  etcdctl get /a --rev=9
+  115  ectdctl put /a 333
+  116  ectdctl get /a --rev=3
+  117  etcdctl get /a --rev=3
+  118  etcdctl get /a --rev=1
+  119  etcdctl get /a --rev=2
+  120  etcdctl get /a -wjson
+  121  etcdctl get /a --rev=6
+  122  etcdctl get /a --rev=7
+  123  etcdctl get /a --rev=8
+  124  etcdctl get /a --rev=9
+  125  pwd
+  126  ll
+  127  git clone https://github.com/onebirdrocks/geektime-ELK.git
+  128  ll
+  129  cd geektime-ELK/
+  130  ll
+  131  cd part-1/
+  132  ll
+  133  cd 2.3-在Docker容器中运行Elasticsearch,Kibana和Cerebro/
+  134  ls
+  135  ll
+  136  cd 7.x-docker-2-es-instances/
+  137  ll
+  138  docker-compose up
+  139  dudo docker-compose up
+  140  sudo docker-compose up
+  141  ls
+  142  vi docker-compose.yaml 
+  143  sudo docker images
+  144  ps aux|grep elastic
+  145  curl http://elasticsearch:9200
+  146  ps axu|grep cerebro
+  147  pwd
+  148  ll
+  149  sudo docker ps
+  150  pwd
+  151  ll
+  152  docker-compose down
+  153  cd elasticsearch-7.1.0
+  154  ll
+  155  cd ..
+  156  sudo docker-compose down
+  157  sudo docker-compose up
+  158  sudo docker ps
+  159  sudo docker-compose up
+  160  sudo docker ps
+  161  ll
+  162  sudo docker-compose --help
+  163  sudo docker-compose ps
+  164  ps aux|grep es
+  165  ps aux|grep elastic
+  166  ss -p |grep 24827
+  167  netstat -anpt|grep 24827
+  168  sudo netstat -anpt|grep 24827
+  169  ps axu|grep kibana7
+  170  ps axu|grep cerebro
+  171  ps axu|grep kibana7
+  172  ps axu|grep elasticsearch
+  173  kill -name elasticsearch
+  174  ps aux|grep elasticsearch
+  175  kill -9 3468
+  176  sudo kill -9 3468
+  177  ps aux|grep elasticsearch
+  178  top
+  179  pwd
+  180  ll
+  181  sudo docker-compose status
+  182  sudo docker-compose log
+  183  sudo docker-compose images
+  184  sudo docker-compose start
+  185  sudo docker-compose log
+  186  sudo docker-compose logs
+  187  sudo docker-compose log
+  188  sudo docker-compose stop
+  189  sudo docker-compose up
+  190  sudo docker-compose status
+  191  sudo docker-compose ps
+  192  sudo docker-compose top
+  193  sudo docker-compose up
+  194  vi .bash_profile 
+  195  source .bash_profile 
+  196  etcdctl
+  197  etcdctl member list --write-out=table
+  198  cd /tmp/etcd-download-test/
+  199  ll
+  200  etcd --listen-client-urls 'http://localhost:12379'  --advertise-client-urls 'http://localhost:12379'  --listen-peer-urls 'http://localhost:12380'  --initial-advertise-peer-urls 'http://localhost:12380'  --initial-cluster 'default=http://localhost:12380'
+  201  cd /tmp/etcd-download-test/
+  202  ll
+  203  ps ef|grep etcd
+  204  ectdctl 
+  205  ll
+  206  alias etcdctl='etcdctl --endpoints=localhost:12379'
+  207  export PATH=$PATH:/tmp/etcd-download-test/
+  208  etcdctl member list --write-out=table  --endpoints=localhost:12379
+  209  etcdctl --endpoints https://127.0.0.1:3379 --cert /tmp/etcd-certs/certs/127.0.0.1.pem --key /tmp/etcd-certs/certs/127.0.0.1-key.pem --cacert /tmp/etcd-certs/certs/ca.pem snapshot save snapshot.db
+  210  sudo docker run -d registry.aliyuncs.com/google_containers/etcd:3.5.0-0/ /usr/local/bin/etcd
+  211  sudo docker run etcd:3.5.0
+  212  cd /etc/docker/
+  213  ll
+  214  cat key.json 
+  215  sudo cat key.json 
+  216  ll
+  217  pwd
+  218  sudo tee /etc/docker/daemon.json <<-'EOF'
+  219  {
+  220  "registry-mirrors": ["https://nf858gl1.mirror.aliyuncs.com"]
+  221  }
+  222  EOF
+  223  sudo cat /etc/docker/daemon.json 
+  224  sudo systemctl daemon-reload
+  225  sudo systemctl restart docker
+  226  sudo docker run -d etcd:3.5.0
+  227  sudo docker run -d etcd:3.5.0-0
+  228  sudo docker pull https://nf858gl1.mirror.aliyuncs.com/google_containers/etcd/3.5.0-0
+  229  sudo docker pull nf858gl1.mirror.aliyuncs.com/google_containers/etcd/3.5.0-0
+  230  sudo docker run -d nf858gl1.mirror.aliyuncs.com/google_containers/etcd/3.5.0-0 /usr/local/bin/etcd
+  231  sudo docker run -d registry.aliyuncs.com/google_containers/etcd/3.5.0-0 /usr/local/bin/etcd
+  232  sudo docker pull google_containers/etcd:3.5.0-0
+  233  sudo docker login
+  234  sudo docker pull google_containers/etcd:3.5.0-0
+  235  sudo docker run -d etcd:3.5.0-0
+  236  docker login
+  237  sudo docker login
+  238  sudo docker run -d etcd:3.5.0-0
+  239  sudo yum install -y yum-utils device-mapper-persistent-data lvm2
+  240  sudo yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+  241  sudo yum makecache fast
+  242  sudo yum -y install docker-ce
+  243  sudo service docker start
+  244  sudo docker pull google_containers/etcd:3.5.0-0
+  245  sudo docker run -d etcd
+  246  sudo docker login
+  247  sudo docker run -d etcd
+  248  sudo docker ps
+  249  sudo docker-compose ps
+  250  sudo docker-compose up
+  251  htop
+  252  top
+  253  sudo docker images
+  254  sudo docker run -d registry.aliyuncs.com/google_containers/etcd:3.5.0-0
+  255  sudo docker run -d registry.aliyuncs.com/google_containers/etcd
+  256  sudo docker delete registry.aliyuncs.com/google_containers/etcd
+  257  sudo docker --help
+  258  sudo docker rmi registry.aliyuncs.com/google_containers/etcd
+  259  sudo docker rmi registry.aliyuncs.com/google_containers/etcd:3.5.0-0
+  260  sudo docker images
+  261  sudo docker run -d ectd
+  262  docker pull bitnami/etcd:latest
+  263  sudo docker pull bitnami/etcd:latest
+  264  sudo docker images
+  265  sudo docker run -d registry.aliyuncs.com/google_containers/etcd/3.5.0-0 /usr/local/bin/etcd
+  266  sudo docker run registry.aliyuncs.com/google_containers/etcd:3.5.0-0
+  267  sodu docker inspect registry.aliyuncs.com/google_containers/etcd
+  268  sudo docker inspect registry.aliyuncs.com/google_containers/etcd -oyaml
+  269  sudo docker run -it registry.aliyuncs.com/google_containers/etcd
+  270  sudo docker run -it registry.aliyuncs.com/google_containers/etcd:3.5.0-0
+  271  sudo docker run -it ectd
+  272  ll
+  273  sudo docker run -it --name Etcd bitnami/etcd
+  274  ETCD_ROOT_PASSWORD=0okm(IJN
+  275  ETCD_ROOT_PASSWORD=Njq0506@
+  276  sudo docker run -it --name Etcd bitnami/etcd
+  277  sudo docker ps
+  278  sudo docker images
+  279  sudo docker rmi 9c2a43ffdc8b
+  280  sudo docker rm bitnami/etcd
+  281  sudo docker rm 9c2a43ffdc8b
+  282  sudo docker rmi 9c2a43ffdc8b
+  283  sudo docker rmi 9c2a43ffdc8b -f
+  284  sudo docker images
+  285  sudo docker run -it --name Etcd bitnami/etcd
+  286  sudo docker inspect 7883162ecf2d1529b5dfb69dc416858a9b381733f3adbccb545560715369bb14
+  287  sudo docker exec -it 7883162ecf2d1529b5dfb69dc416858a9b381733f3adbccb545560715369bb14 sh
+  288  sudo docker ps
+  289  sudo docker ps A
+  290  sudo docker images
+  291  sudo docker prune
+  292  sudo ps aux|grep sleep
+  293  sudo docker prune
+  294  sudo docker --help
+  295  sudo docker image
+  296  sudo docker image prune
+  297  sudo docker images
+  298  sudo docker image inspect registry.aliyuncs.com/google_containers/etcd
+  299  sudo docker image inspect 004811815584
+  300  sudo docker images
+  301  sudo docker run 004811815584
+  302  sudo docker image start004811815584
+  303  sudo docker run -t  start004811815584
+  304  sudo docker run -t  004811815584
+  305  sudo docker run -it  004811815584
+  306  sudo docker image rm 004811815584
+  307  sudo docker ps
+  308  sudo docker images
+  309  sudo docker 
+  310  sudo docker images
+  311  sudo docker run -it bitnami/etcd
+  312  sudo docker run -it bitnami/etcd ALLOW_NONE_AUTHENTICATION=yes
+  313  sudo docker run -it bitnami/etcd
+  314  sudo docker ps
+  315  sudo docker images
+  316  sudo docker run -d redis
+  317  sudo docker run -d registry.aliyuncs.com/google_containers/etcd
+  318  sudo docker run -d bitnami/etcd
+  319  sudo docker ps
+  320  sudo docker logs 77a2f64dc6b6e67b6bd02c99258df655f43b9e3049d5a48dda7b699624b6d949
+  321  ALLOW_NONE_AUTHENTICATION=yes
+  322  sudo docker run -d bitnami/etcd
+  323  sudo docker logs 49f83c69df07c30b0328852abacaa461e0b28043e98e38d9bfc2ae26abce07af
+  324  sudo docker images
+  325  sudo docker image inpect bitnami/etcd
+  326  sudo docker image inspect bitnami/etcd
+  327  sudo docker image edit  bitnami/etcd
+  328  sudo docker image ls
+  329  pwd
+  330  curl -LO https://raw.githubusercontent.com/bitnami/bitnami-docker-etcd/master/docker-compose.yml
+  331  ll
+  332  less docker-compose.yaml
+  333  cp docker-compose.yaml docker-compose-es.yaml
+  334  mkdir etcd-compose
+  335  cd etcd-compose/
+  336  curl -LO https://raw.githubusercontent.com/bitnami/bitnami-docker-etcd/master/docker-compose.yml
+  337  ll
+  338  sudo docker-compose up
+  339  sudo docker ps
+  340  ps axu|grep etcd
+  341  cd /tmp/etcd-download-test/
+  342  ll
+  343  etcdctl member list
+  344  etcdctl member list --endpoints=http://localhost:2379
+  345  etcdctl member list --endpoints=http://127.0.0.1:2379
+  346  etcdctl member list --endpoints=http://127.0.0.1:2380
+  347  etcdctl member list --endpoints=http://127.0.0.1:2379
+  348  alias
+  349  cd ..
+  350  cd
+  351  cd etcd-compose/
+  352  ll
+  353  less docker-compose.yml 
+  354  sudo docker ps
+  355  ps aux|grep etcd
+  356  sudo docker exec -it 605fb2a82f7c sh
+  357  ps aux|grep etcd
+  358  sudo docker ps
+  359  sudo netstat -napt|grep 2379
+  360  sudo docker exec -it 605fb2a82f7c sh
+  361  sudo docker-compose down
+  362  ll
+  363  cp docker-compose.yml docker-compose.yml.bk
+  364  vi docker-compose.yml
+  365  sudo docker-compose up
+  366  sudo docker-compose up -d 
+  367  cat docker-compose.yml
+  368  sudo docker-compose down
+  369  exit
+  370  sudo docker ps
+  371  pwd
+  372  etcdctl 
+  373  vi docker-compose.y
+  374  vi etcd-compose/docker-compose.yml
+  375  sudo docker compose down
+  376  sudo docker-compose down
+  377  sudo docker ps
+  378  etcdctl member list --write-out=table  --endpoints=localhost:2379
+  379  etcdctl member list --write-out=table  --endpoints=localh
+  380  etcdctl  --endpoints=localhost:2379 put /cc 122
+  381  etcdctl  --endpoints=localhost:2379 get /cc
+  382  pwd
+  383  ping baidu.com -l -d
+  384  ping baidu.com
+  385  ping --help
+  386  man ping 
+  387  cat /proc/sys/net/ipv4/tcp_sack 
+  388  ss -nli|fgrep cwnd
+  389  ss -nli|grep cwnd
+  390  ss -nli|fgrep cwnd
+  391  man ss
+  392  ip route change
+  393  uname -a
+  394  less /etc/issue
+  395  less /proc/cpuinfo 
+  396  less /proc/version 
+  397  uname -srm
+  398  hostnamectl 
+  399  uname -a
+  400  man uname 
+  401  ip a
+  402  hostnamectl 
+  403  ifconfig
+  404  arp
+  405  ip link show
+  406  ip a
+  407  clear
+  408  ip a
+  409  ifconfig
+  410  ip netns
+  411  ip netns --help
+  412  nsls 
+  413  lsns
+  414  lsns -t net
+  415  nsenter 4026531956
+  416  man nsenter
+  417  nsenter -n 4026531956
+  418  nsenter -n 9027
+  419  nsenter --help
+  420  nsenter -n 4026531956
+  421  ab
+  422  sudo yum install httpd-tools
+  423  ab
+  424  ab -n 1000 10 https://baidu.com
+  425  ab -n 100 -c 2 https//www.baidu.com
+  426  ab -n 100 -c 2 https://blog.csdn.net/weixin_37335761/article/details/119767996
+  427  ab -n 100 -c 2   -H 'authority: shimo.im'   -H 'accept: application/nd.shimo.v2+json'   -H 'accept-language: en-GB,en;q=0.9,zh-CN;q=0.8,zh;q=0.7'   -H 'cache-control: no-cache'   -H 'cookie: shimo_gatedlaunch=3; shimo_kong=0; shimo_svc_edit=5332; sdk_v2_comment=8387; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%221043559%22%2C%22%24device_id%22%3A%22177fde2fe501c3-03f08c621d615-326f7007-1296000-177fde2fe51a6c%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E8%87%AA%E7%84%B6%E6%90%9C%E7%B4%A2%E6%B5%81%E9%87%8F%22%2C%22%24latest_referrer%22%3A%22https%3A%2F%2Fwww.baidu.com%2Flink%22%2C%22%24latest_referrer_host%22%3A%22www.baidu.com%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC%22%7D%2C%22first_id%22%3A%22177fde2fe501c3-03f08c621d615-326f7007-1296000-177fde2fe51a6c%22%7D; deviceId=browser-e191c441-cd31-5e5e-3d16-cbd7716c94cd; deviceId=svc-69c964ec-d3d2-4fb9-ae2f-1a941bff8bb2; udid=a7eaff18dcd2fb483b5c6e753b740b0b; _bl_uid=5qlXI00XnIhh4mt9njOg3s1i5IOz; fp=7e2324f14a738af19282082f1da7bdb3; cdid=v1_079e3b0d52db8a73a838d683ef63e396; sensorsdata2015session=%7B%7D; _csrf=YBhT7eLL7jIzcm3D8DMYGCHr; Hm_lvt_aa63454d48fc9cc8b5bc33dbd7f35f69=1651328801; Hm_lpvt_aa63454d48fc9cc8b5bc33dbd7f35f69=1651328801; shimo_sid=s%3Adf72414eef904a57aa1bd932ce64d1ba.9oXPNTTCOnWf7aiwlDngBCVmhZmaxpxH3mwlKpqAn5Y; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%2271757574%22%2C%22%24device_id%22%3A%22177fde2fe501c3-03f08c621d615-326f7007-1296000-177fde2fe51a6c%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E8%87%AA%E7%84%B6%E6%90%9C%E7%B4%A2%E6%B5%81%E9%87%8F%22%2C%22%24latest_referrer%22%3A%22https%3A%2F%2Fwww.baidu.com%2Flink%22%2C%22%24latest_referrer_host%22%3A%22www.baidu.com%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC%22%7D%2C%22first_id%22%3A%22177fde2fe501c3-03f08c621d615-326f7007-1296000-177fde2fe51a6c%22%7D'   -H 'referer: https://shimo.im/folder/rtpQWxhjRx6qVYjR'   -H 'sec-ch-ua: ".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"'   -H 'sec-ch-ua-mobile: ?0'   -H 'sec-ch-ua-platform: "macOS"'   -H 'sec-fetch-dest: empty'   -H 'sec-fetch-mode: cors'   -H 'sec-fetch-site: same-origin'   -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'   -H 'x-requested-with: XMLHttpRequest'   --compressed   https://shimo.im/panda-api/file/quota
+  428  curl https://shimo.im/panda-api/file/quota
+  429  ab -n 100 -c 2   -H 'authority: shimo.im'   -H 'accept: application/nd.shimo.v2+json'   -H 'accept-language: en-GB,en;q=0.9,zh-CN;q=0.8,zh;q=0.7'   -H 'cache-control: no-cache'   -H 'cookie: shimo_gatedlaunch=3; shimo_kong=0; shimo_svc_edit=5332; sdk_v2_comment=8387; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%221043559%22%2C%22%24device_id%22%3A%22177fde2fe501c3-03f08c621d615-326f7007-1296000-177fde2fe51a6c%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E8%87%AA%E7%84%B6%E6%90%9C%E7%B4%A2%E6%B5%81%E9%87%8F%22%2C%22%24latest_referrer%22%3A%22https%3A%2F%2Fwww.baidu.com%2Flink%22%2C%22%24latest_referrer_host%22%3A%22www.baidu.com%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC%22%7D%2C%22first_id%22%3A%22177fde2fe501c3-03f08c621d615-326f7007-1296000-177fde2fe51a6c%22%7D; deviceId=browser-e191c441-cd31-5e5e-3d16-cbd7716c94cd; deviceId=svc-69c964ec-d3d2-4fb9-ae2f-1a941bff8bb2; udid=a7eaff18dcd2fb483b5c6e753b740b0b; _bl_uid=5qlXI00XnIhh4mt9njOg3s1i5IOz; fp=7e2324f14a738af19282082f1da7bdb3; cdid=v1_079e3b0d52db8a73a838d683ef63e396; sensorsdata2015session=%7B%7D; _csrf=YBhT7eLL7jIzcm3D8DMYGCHr; Hm_lvt_aa63454d48fc9cc8b5bc33dbd7f35f69=1651328801; Hm_lpvt_aa63454d48fc9cc8b5bc33dbd7f35f69=1651328801; shimo_sid=s%3Adf72414eef904a57aa1bd932ce64d1ba.9oXPNTTCOnWf7aiwlDngBCVmhZmaxpxH3mwlKpqAn5Y; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%2271757574%22%2C%22%24device_id%22%3A%22177fde2fe501c3-03f08c621d615-326f7007-1296000-177fde2fe51a6c%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E8%87%AA%E7%84%B6%E6%90%9C%E7%B4%A2%E6%B5%81%E9%87%8F%22%2C%22%24latest_referrer%22%3A%22https%3A%2F%2Fwww.baidu.com%2Flink%22%2C%22%24latest_referrer_host%22%3A%22www.baidu.com%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC%22%7D%2C%22first_id%22%3A%22177fde2fe501c3-03f08c621d615-326f7007-1296000-177fde2fe51a6c%22%7D'   -H 'referer: https://shimo.im/folder/rtpQWxhjRx6qVYjR'   -H 'sec-ch-ua: ".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"'   -H 'sec-ch-ua-mobile: ?0'   -H 'sec-ch-ua-platform: "macOS"'   -H 'sec-fetch-dest: empty'   -H 'sec-fetch-mode: cors'   -H 'sec-fetch-site: same-origin'   -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'   -H 'x-requested-with: XMLHttpRequest'    https://shimo.im/panda-api/file/quota
+  430  curl 'https://shimo.im/panda-api/file/quota'   -H 'authority: shimo.im'   -H 'accept: application/nd.shimo.v2+json'   -H 'accept-language: en-GB,en;q=0.9,zh-CN;q=0.8,zh;q=0.7'   -H 'cache-control: no-cache'   -H 'cookie: shimo_gatedlaunch=3; shimo_kong=0; shimo_svc_edit=5332; sdk_v2_comment=8387; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%221043559%22%2C%22%24device_id%22%3A%22177fde2fe501c3-03f08c621d615-326f7007-1296000-177fde2fe51a6c%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E8%87%AA%E7%84%B6%E6%90%9C%E7%B4%A2%E6%B5%81%E9%87%8F%22%2C%22%24latest_referrer%22%3A%22https%3A%2F%2Fwww.baidu.com%2Flink%22%2C%22%24latest_referrer_host%22%3A%22www.baidu.com%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC%22%7D%2C%22first_id%22%3A%22177fde2fe501c3-03f08c621d615-326f7007-1296000-177fde2fe51a6c%22%7D; deviceId=browser-e191c441-cd31-5e5e-3d16-cbd7716c94cd; deviceId=svc-69c964ec-d3d2-4fb9-ae2f-1a941bff8bb2; udid=a7eaff18dcd2fb483b5c6e753b740b0b; _bl_uid=5qlXI00XnIhh4mt9njOg3s1i5IOz; fp=7e2324f14a738af19282082f1da7bdb3; cdid=v1_079e3b0d52db8a73a838d683ef63e396; sensorsdata2015session=%7B%7D; _csrf=YBhT7eLL7jIzcm3D8DMYGCHr; Hm_lvt_aa63454d48fc9cc8b5bc33dbd7f35f69=1651328801; Hm_lpvt_aa63454d48fc9cc8b5bc33dbd7f35f69=1651328801; shimo_sid=s%3Adf72414eef904a57aa1bd932ce64d1ba.9oXPNTTCOnWf7aiwlDngBCVmhZmaxpxH3mwlKpqAn5Y; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%2271757574%22%2C%22%24device_id%22%3A%22177fde2fe501c3-03f08c621d615-326f7007-1296000-177fde2fe51a6c%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E8%87%AA%E7%84%B6%E6%90%9C%E7%B4%A2%E6%B5%81%E9%87%8F%22%2C%22%24latest_referrer%22%3A%22https%3A%2F%2Fwww.baidu.com%2Flink%22%2C%22%24latest_referrer_host%22%3A%22www.baidu.com%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC%22%7D%2C%22first_id%22%3A%22177fde2fe501c3-03f08c621d615-326f7007-1296000-177fde2fe51a6c%22%7D'   -H 'referer: https://shimo.im/folder/rtpQWxhjRx6qVYjR'   -H 'sec-ch-ua: ".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"'   -H 'sec-ch-ua-mobile: ?0'   -H 'sec-ch-ua-platform: "macOS"'   -H 'sec-fetch-dest: empty'   -H 'sec-fetch-mode: cors'   -H 'sec-fetch-site: same-origin'   -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'   -H 'x-requested-with: XMLHttpRequest'   --compressed
+  431    ab -n 2 -c 1   -H 'authority: shimo.im'   -H 'accept: application/nd.shimo.v2+json'   -H 'accept-language: en-GB,en;q=0.9,zh-CN;q=0.8,zh;q=0.7'   -H 'cache-control: no-cache'   -H 'cookie: shimo_gatedlaunch=3; shimo_kong=0; shimo_svc_edit=5332; sdk_v2_comment=8387; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%221043559%22%2C%22%24device_id%22%3A%22177fde2fe501c3-03f08c621d615-326f7007-1296000-177fde2fe51a6c%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E8%87%AA%E7%84%B6%E6%90%9C%E7%B4%A2%E6%B5%81%E9%87%8F%22%2C%22%24latest_referrer%22%3A%22https%3A%2F%2Fwww.baidu.com%2Flink%22%2C%22%24latest_referrer_host%22%3A%22www.baidu.com%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC%22%7D%2C%22first_id%22%3A%22177fde2fe501c3-03f08c621d615-326f7007-1296000-177fde2fe51a6c%22%7D; deviceId=browser-e191c441-cd31-5e5e-3d16-cbd7716c94cd; deviceId=svc-69c964ec-d3d2-4fb9-ae2f-1a941bff8bb2; udid=a7eaff18dcd2fb483b5c6e753b740b0b; _bl_uid=5qlXI00XnIhh4mt9njOg3s1i5IOz; fp=7e2324f14a738af19282082f1da7bdb3; cdid=v1_079e3b0d52db8a73a838d683ef63e396; sensorsdata2015session=%7B%7D; _csrf=YBhT7eLL7jIzcm3D8DMYGCHr; Hm_lvt_aa63454d48fc9cc8b5bc33dbd7f35f69=1651328801; Hm_lpvt_aa63454d48fc9cc8b5bc33dbd7f35f69=1651328801; shimo_sid=s%3Adf72414eef904a57aa1bd932ce64d1ba.9oXPNTTCOnWf7aiwlDngBCVmhZmaxpxH3mwlKpqAn5Y; sensorsdata2015jssdkcross=%7B%22distinct_id%22%3A%2271757574%22%2C%22%24device_id%22%3A%22177fde2fe501c3-03f08c621d615-326f7007-1296000-177fde2fe51a6c%22%2C%22props%22%3A%7B%22%24latest_traffic_source_type%22%3A%22%E8%87%AA%E7%84%B6%E6%90%9C%E7%B4%A2%E6%B5%81%E9%87%8F%22%2C%22%24latest_referrer%22%3A%22https%3A%2F%2Fwww.baidu.com%2Flink%22%2C%22%24latest_referrer_host%22%3A%22www.baidu.com%22%2C%22%24latest_search_keyword%22%3A%22%E6%9C%AA%E5%8F%96%E5%88%B0%E5%80%BC%22%7D%2C%22first_id%22%3A%22177fde2fe501c3-03f08c621d615-326f7007-1296000-177fde2fe51a6c%22%7D'   -H 'referer: https://shimo.im/folder/rtpQWxhjRx6qVYjR'   -H 'sec-ch-ua: ".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"'   -H 'sec-ch-ua-mobile: ?0'   -H 'sec-ch-ua-platform: "macOS"'   -H 'sec-fetch-dest: empty'   -H 'sec-fetch-mode: cors'   -H 'sec-fetch-site: same-origin'   -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'   -H 'x-requested-with: XMLHttpRequest'    https://shimo.im/panda-api/file/quota
+  432  ab -n 10 https://blog.csdn.net/weixin_37335761/article/details/119767996
+  433  ab -n 10000 -c 100 https://blog.csdn.net/weixin_37335761/article/details/119767996
+  434  ab -n 100 -c 10 https://blog.csdn.net/weixin_37335761/article/details/119767996
+  435  ab -n 2 'http://baidu.com'
+  436  ab -n 2 http://baidu.com
+  437  ab -n 2 https://baidu.com
+  438  ab -n 2 https://www.baidu.com
+  439  ab -n 2 https://its201.com/article/sinat_41832255/80048580
+  440  ab -n 'https://its201.com/article/sinat_41832255/80048580'
+  441  ab -n "https://its201.com/article/sinat_41832255/80048580"
+  442  ab -n 10 https://mtp.myoas.com/space/c/rest/user/checkLogin   -H 'authority: mtp.myoas.com'   -H 'accept: *'   -H 'accept-language: en-GB,en;q=0.9,zh-CN;q=0.8,zh;q=0.7'   -H 'cookie: JSESSIONID=1uqle0cwk0zlq1galqugf6rya9; SIAMTGT=TGT-17254-MWj2rTJd1HMs434qM1ZjbkEoTf2QDOUt1v9ZTPo4M4hBqbEBed-SIAM; LtpaToken=AAECAzYyQkZDN0FFNjJDMDcwNkU4MDM0MTQ0Obb8oJr6yNQSDf+PwX3t2iuewgPv; cd=mtp.myoas.com; cn=60be0eb2e4b06741cf0a1f97; cu=60ba74a9e4b0bdcdc3029b0e; at=5942d264-0381-4b4d-a1fd-374b1849184e; __loginType=2; uuid=5df32346-aa8d-4ce0-8d43-c78200cbb098; redirectIndexUrl=/yzj-layout/home; webLappToken="RTXcirUwxXe3Eza%2BrvrjMePHJUZsU4c%2BrDj0tU53ho2od%2Bn9m4u0A0WsEgJ4z2ojadGjWqDPJDfXJPxInueNBeP6o1LrPxIeKmem8d%2FBi5Y%3D"; sync_networkid=60be0eb2e4b06741cf0a1f97; sync_userid=60ba74a9e4b0bdcdc3029b0e'   -H 'referer: https://mtp.myoas.com/oppo-mobile-platform/'   -H 'sec-ch-ua: ".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"'   -H 'sec-ch-ua-mobile: ?0'   -H 'sec-ch-ua-platform: "macOS"'   -H 'sec-fetch-dest: empty'   -H 'sec-fetch-mode: cors'   -H 'sec-fetch-site: same-origin'   -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36' 
+  443  ab -n 10   -H 'authority: mtp.myoas.com'   -H 'accept: *'   -H 'accept-language: en-GB,en;q=0.9,zh-CN;q=0.8,zh;q=0.7'   -H 'cookie: JSESSIONID=1uqle0cwk0zlq1galqugf6rya9; SIAMTGT=TGT-17254-MWj2rTJd1HMs434qM1ZjbkEoTf2QDOUt1v9ZTPo4M4hBqbEBed-SIAM; LtpaToken=AAECAzYyQkZDN0FFNjJDMDcwNkU4MDM0MTQ0Obb8oJr6yNQSDf+PwX3t2iuewgPv; cd=mtp.myoas.com; cn=60be0eb2e4b06741cf0a1f97; cu=60ba74a9e4b0bdcdc3029b0e; at=5942d264-0381-4b4d-a1fd-374b1849184e; __loginType=2; uuid=5df32346-aa8d-4ce0-8d43-c78200cbb098; redirectIndexUrl=/yzj-layout/home; webLappToken="RTXcirUwxXe3Eza%2BrvrjMePHJUZsU4c%2BrDj0tU53ho2od%2Bn9m4u0A0WsEgJ4z2ojadGjWqDPJDfXJPxInueNBeP6o1LrPxIeKmem8d%2FBi5Y%3D"; sync_networkid=60be0eb2e4b06741cf0a1f97; sync_userid=60ba74a9e4b0bdcdc3029b0e'   -H 'referer: https://mtp.myoas.com/oppo-mobile-platform/'   -H 'sec-ch-ua: ".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"'   -H 'sec-ch-ua-mobile: ?0'   -H 'sec-ch-ua-platform: "macOS"'   -H 'sec-fetch-dest: empty'   -H 'sec-fetch-mode: cors'   -H 'sec-fetch-site: same-origin'   -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'   https://mtp.myoas.com/space/c/rest/user/checkLogin
+  444  ab -n 1000 -c20   -H 'authority: mtp.myoas.com'   -H 'accept: *'   -H 'accept-language: en-GB,en;q=0.9,zh-CN;q=0.8,zh;q=0.7'   -H 'cookie: JSESSIONID=1uqle0cwk0zlq1galqugf6rya9; SIAMTGT=TGT-17254-MWj2rTJd1HMs434qM1ZjbkEoTf2QDOUt1v9ZTPo4M4hBqbEBed-SIAM; LtpaToken=AAECAzYyQkZDN0FFNjJDMDcwNkU4MDM0MTQ0Obb8oJr6yNQSDf+PwX3t2iuewgPv; cd=mtp.myoas.com; cn=60be0eb2e4b06741cf0a1f97; cu=60ba74a9e4b0bdcdc3029b0e; at=5942d264-0381-4b4d-a1fd-374b1849184e; __loginType=2; uuid=5df32346-aa8d-4ce0-8d43-c78200cbb098; redirectIndexUrl=/yzj-layout/home; webLappToken="RTXcirUwxXe3Eza%2BrvrjMePHJUZsU4c%2BrDj0tU53ho2od%2Bn9m4u0A0WsEgJ4z2ojadGjWqDPJDfXJPxInueNBeP6o1LrPxIeKmem8d%2FBi5Y%3D"; sync_networkid=60be0eb2e4b06741cf0a1f97; sync_userid=60ba74a9e4b0bdcdc3029b0e'   -H 'referer: https://mtp.myoas.com/oppo-mobile-platform/'   -H 'sec-ch-ua: ".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"'   -H 'sec-ch-ua-mobile: ?0'   -H 'sec-ch-ua-platform: "macOS"'   -H 'sec-fetch-dest: empty'   -H 'sec-fetch-mode: cors'   -H 'sec-fetch-site: same-origin'   -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'   https://mtp.myoas.com/space/c/rest/user/checkLogin
+  445  ab -n 10000 -c 10 https://its201.com/article/sinat_41832255/80048580
+  446  unlimit -a
+  447  ulimit -a
+  448  ulimit -n
+  449  ab -n 1000 -c 10 https://its201.com/article/sinat_41832255/80048580
+  450  ab -n 10 -c 1 https://its201.com/article/sinat_41832255/80048580
+  451  ab -n 2 -c 1 https://its201.com/article/sinat_41832255/80048580
+  452  ab -n 10 -c 1   -H 'authority: www.zhihu.com'   -H 'accept: */*'   -H 'accept-language: en-GB,en;q=0.9,zh-CN;q=0.8,zh;q=0.7'   -H 'cookie: d_c0="ACDjz1UyhRCPTpzNf4cUs73Bz-v18bFWZMo=|1576596580"; _ga=GA1.2.486792472.1583073098; _9755xjdesxxd_=32; YD00517437729195%3AWM_TID=sr1sVDnplnBARUFREFJ%2F2AVlDK2MQfW%2B; __snaker__id=Ve1wf7S7maXsrdbN; _zap=8880190e-ff22-4fe2-8183-b840b2b521ef; _xsrf=525ab9d3-0726-4232-8d55-e2a1a13d5fad; gdxidpyhxdE=Ykam0sa1EkASUJBIyBUdCinOLy2uX7lcSkgZvlsaQGEgrUOsXG5l475YQebB5BsdkozJN%5ClCPJ5Azkkhrf%2FRcT9yPrY6h3qGkIKsiYK9BgzK7xx5RM0yhdEkksQGlZeG4qGRzSgxJBIQnAlqpyks6dk6aWIsoixnX1rahS6CK%2BqfxYJQ%3A1651377178576; YD00517437729195%3AWM_NI=BkIccLPKKeq3h2A0j9QoWZupZk2ggJzYFtT7DCalttxZeBtsKctJmGI3tpRHJWkbC4JuTysO2pdG5AWYkgULbNG1q69gy50%2Fw0o7DTZw9c0ibM8WAIrbhT5LOXRXSzikQlg%3D; YD00517437729195%3AWM_NIKE=9ca17ae2e6ffcda170e2e6ee8fcc52bcb7fedae47aa9ac8eb3d44a969b8fb1d85f95aab7d3e66dba9aaf90d82af0fea7c3b92a82b58784e24894958586f439acee8fd1e93393b199bbf87c9ab5fe88e642ba878a95d73d889daf8df780bc86aba3f77989bdbcabf04d8bedbc91d1448a89a583c2408aab9c9af245f2b0aca8b84b9587a588d848a29289d2f43efbb9b7d6b325b5f0a1d8c7609aa9f784b363a293f8b8c443b2bea8b5b8488d889eb9d272abb59f8de637e2a3; captcha_session_v2=2|1:0|10:1655133425|18:captcha_session_v2|88:bUtaTTAxMDIvNkNEMlNyVDhlWkhiRXhnd1RTa1N1QzR0RkdHWDlodzF5QW5mekUzZ01GYTMza0xJN1oyQmhxOQ==|543e70510bd6dfb0daa42d823725fa38152822696a2ea2eea1d47f882f0e2017; z_c0="2|1:0|10:1655133475|4:z_c0|92:Mi4xZWc2QUFnQUFBQUFBSU9QUFZUS0ZFQ2NBQUFDRUFsVk5JdUxPWWdCY3NQLWdTUVdhUHNJTW8xTDVNQUNtQTBGclln|6e5bbcc18a2ba12096eb9538253d765ab86780d77c33719d7f7d63648484a65d"; Hm_lvt_98beee57fd2ef70ccdd5ca52b9740c49=; Hm_lpvt_98beee57fd2ef70ccdd5ca52b9740c49=1656736310; NOT_UNREGISTER_WAITING=1; SESSIONID=mI3OSJByPEtkorw6a5qy1MhCfleyaKorC7FUSpUF3nH; JOID=UV4UAk13eqoP5ceddnVaOXalM5xmHzSZR7OI2A8iOtlkjbDvR023Em_lxZpx7T-N16tVZW_93AUpdmvF4DzFiZw=; osd=W14WBUN9eqgI682ddHJUM3anNJJsHzaeSbmI2ggsMNlmir7lR0-wHGXlx51_5z-P0KVfZW360g8pdGzL6jzHjpI=; KLBRSID=cdfcc1d45d024a211bb7144f66bda2cf|1656736319|1656736307'   -H 'referer: https://www.zhihu.com/search?q=%E7%BD%91%E5%8D%A1%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86&type=content'   -H 'sec-ch-ua: ".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"'   -H 'sec-ch-ua-mobile: ?0'   -H 'sec-ch-ua-platform: "macOS"'   -H 'sec-fetch-dest: empty'   -H 'sec-fetch-mode: cors'   -H 'sec-fetch-site: same-origin'   -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'   -H 'x-ab-param: '   -H 'x-ab-pb: CpQCtACiBgQKxApAAaIDmwdWDBEFYAsWBlQJzAmgA40EdAj0CXkL3Qd2C4sFSQrMAkEGKQt+BhML5Qm5C9cLgwrXAjMEYAmYCvQD1gTgC0cAVwc/CdwL/grrBsUIRgtSC7QKjAW1C9gHSQmHC8UJ9gngC0MAdAGYCMYJAQs7ArkCxwnLCT8A8wNCCcgJvgo3DKYEpQo7C3YIfQuUBqML6QQpBUMLTwNQA+0K5QihA9oIMQZ3B2UKaQFqAQEJVQmeBRYJ7Aq3A40L2ALDCRsAyQnKCTQMMAZ5CNYI4Qn9CsALJweNCZsLegjRCWsK5QuMBNwHhQt9AicI8QlRBasJeAfECdQKMgXOCnELhAmpCjIDZwjdCuQKEooBAAAAAQEAAAEAAAAAAAAEAAAAAgAAAAAAAAABAAAAAAAAAQEABAAAAQAAAAAGAAEAAAMAAQAAAAAVAAMAAAAVAAAAAAEAAAEAAgEAAAABAAAAAAAAAQAAAQAAAgEAAAEDAQAAAAAAAAAAAAAAAAUAAAACAgAAAAQCAAEAAAEBAAABAQEAAAAABAAA'   -H 'x-requested-with: fetch'   -H 'x-zse-93: 101_3_3.0'   -H 'x-zse-96: 2.0_0NyvBkj30yVFC2Vk/MxbpDFBKK+buxy/u2fBD49rehmrp7ah0DcInzIJjaUCPjP8'   https://www.zhihu.com/api/v4/search/top_search
+  453  curl 'https://www.zhihu.com/api/v4/search/top_search'   -H 'authority: www.zhihu.com'   -H 'accept: */*'   -H 'accept-language: en-GB,en;q=0.9,zh-CN;q=0.8,zh;q=0.7'   -H 'cookie: d_c0="ACDjz1UyhRCPTpzNf4cUs73Bz-v18bFWZMo=|1576596580"; _ga=GA1.2.486792472.1583073098; _9755xjdesxxd_=32; YD00517437729195%3AWM_TID=sr1sVDnplnBARUFREFJ%2F2AVlDK2MQfW%2B; __snaker__id=Ve1wf7S7maXsrdbN; _zap=8880190e-ff22-4fe2-8183-b840b2b521ef; _xsrf=525ab9d3-0726-4232-8d55-e2a1a13d5fad; gdxidpyhxdE=Ykam0sa1EkASUJBIyBUdCinOLy2uX7lcSkgZvlsaQGEgrUOsXG5l475YQebB5BsdkozJN%5ClCPJ5Azkkhrf%2FRcT9yPrY6h3qGkIKsiYK9BgzK7xx5RM0yhdEkksQGlZeG4qGRzSgxJBIQnAlqpyks6dk6aWIsoixnX1rahS6CK%2BqfxYJQ%3A1651377178576; YD00517437729195%3AWM_NI=BkIccLPKKeq3h2A0j9QoWZupZk2ggJzYFtT7DCalttxZeBtsKctJmGI3tpRHJWkbC4JuTysO2pdG5AWYkgULbNG1q69gy50%2Fw0o7DTZw9c0ibM8WAIrbhT5LOXRXSzikQlg%3D; YD00517437729195%3AWM_NIKE=9ca17ae2e6ffcda170e2e6ee8fcc52bcb7fedae47aa9ac8eb3d44a969b8fb1d85f95aab7d3e66dba9aaf90d82af0fea7c3b92a82b58784e24894958586f439acee8fd1e93393b199bbf87c9ab5fe88e642ba878a95d73d889daf8df780bc86aba3f77989bdbcabf04d8bedbc91d1448a89a583c2408aab9c9af245f2b0aca8b84b9587a588d848a29289d2f43efbb9b7d6b325b5f0a1d8c7609aa9f784b363a293f8b8c443b2bea8b5b8488d889eb9d272abb59f8de637e2a3; captcha_session_v2=2|1:0|10:1655133425|18:captcha_session_v2|88:bUtaTTAxMDIvNkNEMlNyVDhlWkhiRXhnd1RTa1N1QzR0RkdHWDlodzF5QW5mekUzZ01GYTMza0xJN1oyQmhxOQ==|543e70510bd6dfb0daa42d823725fa38152822696a2ea2eea1d47f882f0e2017; z_c0="2|1:0|10:1655133475|4:z_c0|92:Mi4xZWc2QUFnQUFBQUFBSU9QUFZUS0ZFQ2NBQUFDRUFsVk5JdUxPWWdCY3NQLWdTUVdhUHNJTW8xTDVNQUNtQTBGclln|6e5bbcc18a2ba12096eb9538253d765ab86780d77c33719d7f7d63648484a65d"; Hm_lvt_98beee57fd2ef70ccdd5ca52b9740c49=; Hm_lpvt_98beee57fd2ef70ccdd5ca52b9740c49=1656736310; NOT_UNREGISTER_WAITING=1; SESSIONID=mI3OSJByPEtkorw6a5qy1MhCfleyaKorC7FUSpUF3nH; JOID=UV4UAk13eqoP5ceddnVaOXalM5xmHzSZR7OI2A8iOtlkjbDvR023Em_lxZpx7T-N16tVZW_93AUpdmvF4DzFiZw=; osd=W14WBUN9eqgI682ddHJUM3anNJJsHzaeSbmI2ggsMNlmir7lR0-wHGXlx51_5z-P0KVfZW360g8pdGzL6jzHjpI=; KLBRSID=cdfcc1d45d024a211bb7144f66bda2cf|1656736319|1656736307'   -H 'referer: https://www.zhihu.com/search?q=%E7%BD%91%E5%8D%A1%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86&type=content'   -H 'sec-ch-ua: ".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"'   -H 'sec-ch-ua-mobile: ?0'   -H 'sec-ch-ua-platform: "macOS"'   -H 'sec-fetch-dest: empty'   -H 'sec-fetch-mode: cors'   -H 'sec-fetch-site: same-origin'   -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'   -H 'x-ab-param: '   -H 'x-ab-pb: CpQCtACiBgQKxApAAaIDmwdWDBEFYAsWBlQJzAmgA40EdAj0CXkL3Qd2C4sFSQrMAkEGKQt+BhML5Qm5C9cLgwrXAjMEYAmYCvQD1gTgC0cAVwc/CdwL/grrBsUIRgtSC7QKjAW1C9gHSQmHC8UJ9gngC0MAdAGYCMYJAQs7ArkCxwnLCT8A8wNCCcgJvgo3DKYEpQo7C3YIfQuUBqML6QQpBUMLTwNQA+0K5QihA9oIMQZ3B2UKaQFqAQEJVQmeBRYJ7Aq3A40L2ALDCRsAyQnKCTQMMAZ5CNYI4Qn9CsALJweNCZsLegjRCWsK5QuMBNwHhQt9AicI8QlRBasJeAfECdQKMgXOCnELhAmpCjIDZwjdCuQKEooBAAAAAQEAAAEAAAAAAAAEAAAAAgAAAAAAAAABAAAAAAAAAQEABAAAAQAAAAAGAAEAAAMAAQAAAAAVAAMAAAAVAAAAAAEAAAEAAgEAAAABAAAAAAAAAQAAAQAAAgEAAAEDAQAAAAAAAAAAAAAAAAUAAAACAgAAAAQCAAEAAAEBAAABAQEAAAAABAAA'   -H 'x-requested-with: fetch'   -H 'x-zse-93: 101_3_3.0'   -H 'x-zse-96: 2.0_0NyvBkj30yVFC2Vk/MxbpDFBKK+buxy/u2fBD49rehmrp7ah0DcInzIJjaUCPjP8'   --compressed
+  454  ab -n 10 -c 1   -H 'authority: www.zhihu.com'   -H 'accept: */*'   -H 'accept-language: en-GB,en;q=0.9,zh-CN;q=0.8,zh;q=0.7'   -H 'cookie: d_c0="ACDjz1UyhRCPTpzNf4cUs73Bz-v18bFWZMo=|1576596580"; _ga=GA1.2.486792472.1583073098; _9755xjdesxxd_=32; YD00517437729195%3AWM_TID=sr1sVDnplnBARUFREFJ%2F2AVlDK2MQfW%2B; __snaker__id=Ve1wf7S7maXsrdbN; _zap=8880190e-ff22-4fe2-8183-b840b2b521ef; _xsrf=525ab9d3-0726-4232-8d55-e2a1a13d5fad; gdxidpyhxdE=Ykam0sa1EkASUJBIyBUdCinOLy2uX7lcSkgZvlsaQGEgrUOsXG5l475YQebB5BsdkozJN%5ClCPJ5Azkkhrf%2FRcT9yPrY6h3qGkIKsiYK9BgzK7xx5RM0yhdEkksQGlZeG4qGRzSgxJBIQnAlqpyks6dk6aWIsoixnX1rahS6CK%2BqfxYJQ%3A1651377178576; YD00517437729195%3AWM_NI=BkIccLPKKeq3h2A0j9QoWZupZk2ggJzYFtT7DCalttxZeBtsKctJmGI3tpRHJWkbC4JuTysO2pdG5AWYkgULbNG1q69gy50%2Fw0o7DTZw9c0ibM8WAIrbhT5LOXRXSzikQlg%3D; YD00517437729195%3AWM_NIKE=9ca17ae2e6ffcda170e2e6ee8fcc52bcb7fedae47aa9ac8eb3d44a969b8fb1d85f95aab7d3e66dba9aaf90d82af0fea7c3b92a82b58784e24894958586f439acee8fd1e93393b199bbf87c9ab5fe88e642ba878a95d73d889daf8df780bc86aba3f77989bdbcabf04d8bedbc91d1448a89a583c2408aab9c9af245f2b0aca8b84b9587a588d848a29289d2f43efbb9b7d6b325b5f0a1d8c7609aa9f784b363a293f8b8c443b2bea8b5b8488d889eb9d272abb59f8de637e2a3; captcha_session_v2=2|1:0|10:1655133425|18:captcha_session_v2|88:bUtaTTAxMDIvNkNEMlNyVDhlWkhiRXhnd1RTa1N1QzR0RkdHWDlodzF5QW5mekUzZ01GYTMza0xJN1oyQmhxOQ==|543e70510bd6dfb0daa42d823725fa38152822696a2ea2eea1d47f882f0e2017; z_c0="2|1:0|10:1655133475|4:z_c0|92:Mi4xZWc2QUFnQUFBQUFBSU9QUFZUS0ZFQ2NBQUFDRUFsVk5JdUxPWWdCY3NQLWdTUVdhUHNJTW8xTDVNQUNtQTBGclln|6e5bbcc18a2ba12096eb9538253d765ab86780d77c33719d7f7d63648484a65d"; Hm_lvt_98beee57fd2ef70ccdd5ca52b9740c49=; Hm_lpvt_98beee57fd2ef70ccdd5ca52b9740c49=1656736310; NOT_UNREGISTER_WAITING=1; SESSIONID=mI3OSJByPEtkorw6a5qy1MhCfleyaKorC7FUSpUF3nH; JOID=UV4UAk13eqoP5ceddnVaOXalM5xmHzSZR7OI2A8iOtlkjbDvR023Em_lxZpx7T-N16tVZW_93AUpdmvF4DzFiZw=; osd=W14WBUN9eqgI682ddHJUM3anNJJsHzaeSbmI2ggsMNlmir7lR0-wHGXlx51_5z-P0KVfZW360g8pdGzL6jzHjpI=; KLBRSID=cdfcc1d45d024a211bb7144f66bda2cf|1656736319|1656736307'   -H 'referer: https://www.zhihu.com/search?q=%E7%BD%91%E5%8D%A1%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86&type=content'   -H 'sec-ch-ua: ".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"'   -H 'sec-ch-ua-mobile: ?0'   -H 'sec-ch-ua-platform: "macOS"'   -H 'sec-fetch-dest: empty'   -H 'sec-fetch-mode: cors'   -H 'sec-fetch-site: same-origin'   -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'   -H 'x-ab-param: '   -H 'x-ab-pb: CpQCtACiBgQKxApAAaIDmwdWDBEFYAsWBlQJzAmgA40EdAj0CXkL3Qd2C4sFSQrMAkEGKQt+BhML5Qm5C9cLgwrXAjMEYAmYCvQD1gTgC0cAVwc/CdwL/grrBsUIRgtSC7QKjAW1C9gHSQmHC8UJ9gngC0MAdAGYCMYJAQs7ArkCxwnLCT8A8wNCCcgJvgo3DKYEpQo7C3YIfQuUBqML6QQpBUMLTwNQA+0K5QihA9oIMQZ3B2UKaQFqAQEJVQmeBRYJ7Aq3A40L2ALDCRsAyQnKCTQMMAZ5CNYI4Qn9CsALJweNCZsLegjRCWsK5QuMBNwHhQt9AicI8QlRBasJeAfECdQKMgXOCnELhAmpCjIDZwjdCuQKEooBAAAAAQEAAAEAAAAAAAAEAAAAAgAAAAAAAAABAAAAAAAAAQEABAAAAQAAAAAGAAEAAAMAAQAAAAAVAAMAAAAVAAAAAAEAAAEAAgEAAAABAAAAAAAAAQAAAQAAAgEAAAEDAQAAAAAAAAAAAAAAAAUAAAACAgAAAAQCAAEAAAEBAAABAQEAAAAABAAA'   -H 'x-requested-with: fetch'   -H 'x-zse-93: 101_3_3.0'   -H 'x-zse-96: 2.0_0NyvBkj30yVFC2Vk/MxbpDFBKK+buxy/u2fBD49rehmrp7ah0DcInzIJjaUCPjP8'   https://www.zhihu.com/api/v4/search/top_search
+  455  pwd
+  456  ll
+  457  cd go/src/github.com/
+  458  ll
+  459  git clone https://github.com/kubernetes/kubernetes.git
+  460  cd kubernetes/
+  461  ll
+  462  pwd
+  463  cd ..
+  464  ll
+  465  vi kubernetes/
+  466  vim kubernetes/
+  467  man vi
+  468  vi kubernetes/
+  469  cd go/src/github.com/
+  470  ll
+  471  vim kubernetes/
+  472  cd kubernetes/
+  473  du -f
+  474  du
+  475  cd ..
+  476  du
+  477  du -f
+  478  du -h
+  479  ls
+  480  du kubernetes/
+  481  df -h
+  482  ll
+  483  df -u
+  484  dh
+  485  ll
+  486  ifstat
+  487  ifstat -h
+  488  ifstat
+  489  route -n
+  490  rpm
+  491  ip route show
+  492  routel
+  493  arp
+  494  cat /proc/net/arp 
+  495  ip a
+  496  cd /var/lib/docker/
+  497  sudo cd /var/lib/docker/
+  498  ll
+  499  ls
+  500  ab -n 10 -c 1   -H 'authority: www.zhihu.com'   -H 'accept: */*'   -H 'accept-language: en-GB,en;q=0.9,zh-CN;q=0.8,zh;q=0.7'   -H 'cookie: d_c0="ACDjz1UyhRCPTpzNf4cUs73Bz-v18bFWZMo=|1576596580"; _ga=GA1.2.486792472.1583073098; _9755xjdesxxd_=32; YD00517437729195%3AWM_TID=sr1sVDnplnBARUFREFJ%2F2AVlDK2MQfW%2B; __snaker__id=Ve1wf7S7maXsrdbN; _zap=8880190e-ff22-4fe2-8183-b840b2b521ef; _xsrf=525ab9d3-0726-4232-8d55-e2a1a13d5fad; gdxidpyhxdE=Ykam0sa1EkASUJBIyBUdCinOLy2uX7lcSkgZvlsaQGEgrUOsXG5l475YQebB5BsdkozJN%5ClCPJ5Azkkhrf%2FRcT9yPrY6h3qGkIKsiYK9BgzK7xx5RM0yhdEkksQGlZeG4qGRzSgxJBIQnAlqpyks6dk6aWIsoixnX1rahS6CK%2BqfxYJQ%3A1651377178576; YD00517437729195%3AWM_NI=BkIccLPKKeq3h2A0j9QoWZupZk2ggJzYFtT7DCalttxZeBtsKctJmGI3tpRHJWkbC4JuTysO2pdG5AWYkgULbNG1q69gy50%2Fw0o7DTZw9c0ibM8WAIrbhT5LOXRXSzikQlg%3D; YD00517437729195%3AWM_NIKE=9ca17ae2e6ffcda170e2e6ee8fcc52bcb7fedae47aa9ac8eb3d44a969b8fb1d85f95aab7d3e66dba9aaf90d82af0fea7c3b92a82b58784e24894958586f439acee8fd1e93393b199bbf87c9ab5fe88e642ba878a95d73d889daf8df780bc86aba3f77989bdbcabf04d8bedbc91d1448a89a583c2408aab9c9af245f2b0aca8b84b9587a588d848a29289d2f43efbb9b7d6b325b5f0a1d8c7609aa9f784b363a293f8b8c443b2bea8b5b8488d889eb9d272abb59f8de637e2a3; captcha_session_v2=2|1:0|10:1655133425|18:captcha_session_v2|88:bUtaTTAxMDIvNkNEMlNyVDhlWkhiRXhnd1RTa1N1QzR0RkdHWDlodzF5QW5mekUzZ01GYTMza0xJN1oyQmhxOQ==|543e70510bd6dfb0daa42d823725fa38152822696a2ea2eea1d47f882f0e2017; z_c0="2|1:0|10:1655133475|4:z_c0|92:Mi4xZWc2QUFnQUFBQUFBSU9QUFZUS0ZFQ2NBQUFDRUFsVk5JdUxPWWdCY3NQLWdTUVdhUHNJTW8xTDVNQUNtQTBGclln|6e5bbcc18a2ba12096eb9538253d765ab86780d77c33719d7f7d63648484a65d"; Hm_lvt_98beee57fd2ef70ccdd5ca52b9740c49=; Hm_lpvt_98beee57fd2ef70ccdd5ca52b9740c49=1656736310; NOT_UNREGISTER_WAITING=1; SESSIONID=mI3OSJByPEtkorw6a5qy1MhCfleyaKorC7FUSpUF3nH; JOID=UV4UAk13eqoP5ceddnVaOXalM5xmHzSZR7OI2A8iOtlkjbDvR023Em_lxZpx7T-N16tVZW_93AUpdmvF4DzFiZw=; osd=W14WBUN9eqgI682ddHJUM3anNJJsHzaeSbmI2ggsMNlmir7lR0-wHGXlx51_5z-P0KVfZW360g8pdGzL6jzHjpI=; KLBRSID=cdfcc1d45d024a211bb7144f66bda2cf|1656736319|1656736307'   -H 'referer: https://www.zhihu.com/search?q=%E7%BD%91%E5%8D%A1%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86&type=content'   -H 'sec-ch-ua: ".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"'   -H 'sec-ch-ua-mobile: ?0'   -H 'sec-ch-ua-platform: "macOS"'   -H 'sec-fetch-dest: empty'   -H 'sec-fetch-mode: cors'   -H 'sec-fetch-site: same-origin'   -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36'   -H 'x-ab-param: '   -H 'x-ab-pb: CpQCtACiBgQKxApAAaIDmwdWDBEFYAsWBlQJzAmgA40EdAj0CXkL3Qd2C4sFSQrMAkEGKQt+BhML5Qm5C9cLgwrXAjMEYAmYCvQD1gTgC0cAVwc/CdwL/grrBsUIRgtSC7QKjAW1C9gHSQmHC8UJ9gngC0MAdAGYCMYJAQs7ArkCxwnLCT8A8wNCCcgJvgo3DKYEpQo7C3YIfQuUBqML6QQpBUMLTwNQA+0K5QihA9oIMQZ3B2UKaQFqAQEJVQmeBRYJ7Aq3A40L2ALDCRsAyQnKCTQMMAZ5CNYI4Qn9CsALJweNCZsLegjRCWsK5QuMBNwHhQt9AicI8QlRBasJeAfECdQKMgXOCnELhAmpCjIDZwjdCuQKEooBAAAAAQEAAAEAAAAAAAAEAAAAAgAAAAAAAAABAAAAAAAAAQEABAAAAQAAAAAGAAEAAAMAAQAAAAAVAAMAAAAVAAAAAAEAAAEAAgEAAAABAAAAAAAAAQAAAQAAAgEAAAEDAQAAAAAAAAAAAAAAAAUAAAACAgAAAAQCAAEAAAEBAAABAQEAAAAABAAA'   -H 'x-requested-with: fetch'   -H 'x-zse-93: 101_3_3.0'   -H 'x-zse-96: 2.0_0NyvBkj30yVFC2Vk/MxbpDFBKK+buxy/u2fBD49rehmrp7ah0DcInzIJjaUCPjP8'   https://www.zhihu.com/api/v4/search/top_search
+  501  pwd
+  502  sudo docker ps
+  503  pwd
+  504  ll
+  505  less docker-compose.yaml
+  506  sudo docker-compose down
+  507  ll
+  508  cat tmp.txt 
+  509  cat docker-cmd 
+  510  docker-compose down
+  511  docker-compose up
+  512  docker ps
+  513  sudo docker ps
+  514  ll
+  515  less docker-compose.y
+  516  less docker-compose.yaml
+  517  ll
+  518  less docker-compose-es.yaml
+  519  ll
+  520  cd kibana-7.1.0-linux-x86_64
+  521  ll
+  522  cd config/
+  523  ll
+  524  vi kibana.yml 
+  525  cat kibana.yml 
+  526  /pass
+  527  less kibana.yml 
+  528  sysctl --help
+  529  sysctl -a
+  530  sysctl -a > sysctl-env-param
+  531  sudo sysctl -a > sysctl-env-param
+  532  less sysctl-env-param 
+  533  ps aux|grep java | tee tee-sample
+  534  ll
+  535  pwd
+  536  less tee-sample 
+  537  mv sysctl-env-param tee-sample ~
+  538  ll
+  539  history
+  540  sudo docker ps
+  541  sudo docker exec -it a499f4777d7e -- sh
+  542  sudo docker exec -it a499f4777d7e sh
+  543  pwd
+  544  ll
+  545  sudo docker ps
+  546  sudo docker exec -it a499f4777d7e -sh
+  547  sudo docker exec -it a499f4777d7e -- sh
+  548  sudo docker exec -it a499f4777d7e sh
+  549  sudo docker ps
+  550  sudo docker exec -it a499f4777d7e sh
+  551  pwd
+  552  ll
+  553  docker-compose down
+  554  less docker-cmd 
+  555  sudo docker-compose restart
+  556  less docker-compose.yaml
+  557  mv docker-compose-es.yaml docker-compose-es.yaml.bk0715
+  558  sudo docker-compose restart
+  559  ll
+  560  mv docker-compose.yml docker-compose.yml.bk06
+  561  sudo docker-compose restart
+  562  ll
+  563  cd logs
+  564  ls
+  565  ll
+  566  cd ..
+  567  ll
+  568  cd /var/
+  569  ls
+  570  cd log/
+  571  ls
+  572  cd journal/
+  573  ls
+  574  cd ..
+  575  ls
+  576  cd
+  577  ll
+  578  less docker-compose.yml.bk06 
+  579  less docker-compose.yaml
+  580  ps aux|grep es
+  581  ps aux|grep elastic
+  582  top
+  583  ps aux|grep kibana
+  584  sudo docker ps
+  585  sudo docker exec -it 5f60a5f16b38 sh
+  586  sudo docker logs 77a2f64dc6b6e67b6bd02c99258df655f43b9e3049d5a48dda7b699624b6d949
+  587  sudo docker ps
+  588  sudo docker logs 5f60a5f16b38
+  589  sudo docker logs -f 5f60a5f16b38
+  590  ll
+  591  less docker-cmd 
+  592  sudo docker container
+  593  sudo docker container ls
+  594  less docker-cmd 
+  595  docker container logs e5c17a3faef5|tail -f
+  596  sudo docker container logs e5c17a3faef5|tail -f
+  597  sudo docker container logs 5f60a5f16b38|tail -f
+  598  sudo docker container logs 5f60a5f16b38|tail -50f
+  599  ll
+  600  ps aux|grep elastic
+  601  free
+  602  ll
+  603  vi docker-compose-es.yaml.bk0715 
+  604  vi docker-compose-es.yaml
+  605  vi docker-compose.yaml
+  606  grep ES_JAVA_OPTS *.yaml
+  607  grep ES_JAVA_OPTS *.yaml*
+  608  ps aux|grep java
+  609  sudo docker compose down
+  610  sudo docker-compose down
+  611  ps aux|grep java
+  612  docker-compose --help
+  613  ll
+  614  sudo docker-compose -f docker-compose.yaml
+  615  sudo docker-compose -f docker-compose.yaml up
+  616  ps aux|grep java
+  617  sudo docker pull njq0506/httpserver
+  618  sudo docker pull njq0506/httpserver:v1.0.1
+  619  docker images
+  620  sudo docker images
+  621  sudo docker run njq0506/httpserver:v1.0.1
+  622  sudo docker ps
+  623  sudo docker logs njq0506/httpserver
+  624  sudo docker logs njq0506/httpserver:v1.0.1
+  625  sudo docker run njq0506/httpserver
+  626  sudo docker run njq0506/httpserver:v1.0.1
+  627  sudo docker logs njq0506/httpserver:v1.0.1
+  628  sudo docker logs --help
+  629  sudo docker logs -f njq0506/httpserver
+  630  sudo docker logs -f njq0506/httpserver:v1.01
+  631  sudo docker logs -f njq0506/httpserver:v1.0.1
+  632  ll
+  633  sudo docker ps
+  634  sudo docker logs 8e82579f26ff
+  635  go version
+  636  cd go/src/github.com/golang/httpserver
+  637  ll
+  638  vi Dockerfile2 
+  639  go version
+  640  ps axu|grep httpserver
+  641  curl http://localhost:8082
+  642  sudo netstat -anpt|grep 8082
+  643  ps aux|grep https
+  644  sudo docker ps
+  645  sudo docker ps|grep http
+  646  sudo docker kill ab1fd8cc38c1
+  647  sudo docker images|grep http
+  648  sudo docker run -d a8deb1397363
+  649  ps aux|grep https
+  650  sudo netstat -anpt|grep 23014
+  651  sudo docker ps|grep http
+  652  sudo docker kill 92ef0f66de9c
+  653  sudo docker run -d a8deb1397363 -p 8082:8082
+  654  sudo netstat -anpt|grep 8082
+  655  sudo docker run -d a8deb1397363 -p 8082:8083
+  656  sudo netstat -anpt|grep 808
+  657  ll
+  658  cd trial-docker/
+  659  ll
+  660  vi Dockerfile2 
+  661  vi Dockerfile
+  662  cd ..
+  663  ll
+  664  ls
+  665  cd go/src/github.com/
+  666  ll
+  667  cd golang/
+  668  ll
+  669  cd httpserver/
+  670  ls
+  671  ll
+  672  vi Dockerfile2 
+  673  vi main.go 
+  674  pwd
+  675  sudo docker run -d httpserver:v1.0.1
+  676  sudo docker ps
+  677  sudo lsns -t net
+  678  sudo docker logs -f 43621bdfceb9
+  679  sudo netstat -anpt|grep 8082
+  680  sudo docker exec -it 43621bdfceb9 sh
+  681  ll
+  682  vi main.go 
+  683  vi Dockerfile2 
+  684  sudo netstat -anpt|grep 8082
+  685  vi go.mod 
+  686  cd ..
+  687  ll
+  688  zip -r httpserver-bk.zip httpserver/
+  689  ll
+  690  cd httpserver
+  691  ll
+  692  mv main.go main.go-bk
+  693  vi main.go
+  694  sudo docker build -f Dockerfile2 . -t httpserver:v1.0.1
+  695  sudo docker build -f Dockerfile2 . -t httpserver:v1.0.2
+  696  sudo docker images
+  697  sudo docker run -d httpserver:v1.0.2
+  698  sudo docker ps
+  699  sudo docker kill 43621bdfceb9
+  700  sudo docker ps
+  701  sudo docker kill 419510687e38
+  702  sudo docker ps
+  703  sudo docker run -d httpserver:v1.0.2
+  704  sudo docker ps
+  705  sudo netstat -anpt|grep 8082
+  706  sudo docker logs -f 364e1edf10f9
+  707  sudo docker logs  364e1edf10f9
+  708  curl http://localhost:8082/healthz
+  709  sudo lsns -t net
+  710  sudo nsenter -t 28529 -n ip a
+  711  sudo docker tag httpserver:v1.0.2 njq0506/httpserver:v1.0.2
+  712  sudo docker push njq0506/httpserver:v1.0.2
+  713  sudo docker images
+  714  sudo docker image prune
+  715  sudo docker images
+  716  sudo docker ps
+  717  sudo docker --help
+  718  sudo netstat -anpt|grep 80
+  719  sudo netstat -anpt|grep LISTEN
+  720  curl http://localhost:80
+  721  curl http://localhost:8082
+  722  curl http://localhost:80
+  723  ll
+  724  vi Dockerfile2 
+  725  less Dockerfile1
+  726  less Dockerfile
+  727  less Dockerfile3
+  728  ll
+  729  sudo docker pull drinkey/httpserver:latest
+  730  sudo docker images
+  731  sudo docker run -d 5b6776d910cd
+  732  sudo docker image delete 5b6776d910cd
+  733  sudo docker image rm 5b6776d910cd
+  734  sudo docker ps
+  735  sudo docker image stop 5b6776d910cd
+  736  sudo docker image rm 5b6776d910cd
+  737  sudo docker images
+  738  hostname -a
+  739  hostnamectl 
+  740  sudo docker pull cncamp/httpserver:v1.0
+  741  sudo docker images
+  742  sudo docker run -d 561d4375c78d
+  743  sudo netstat -anpt|grep LISTEN
+  744  sudo docker exec -it 561d4375c78d sh
+  745  sudo docker ps
+  746  sudo docker kill c4e3825a2f97
+  747  sudo docker ps
+  748  sudo docker images
+  749  sudo docker image rm 561d4375c78d
+  750  sudo docker image rm -f 561d4375c78d
+  751  sudo docker images
+  752  sudo docker image rm -f 5b6776d910cd
+  753  sudo docker images
+  754  ll
+  755  cd build
+  756  ll
+  757  cd ..
+  758  cd bin/
+  759  ll
+  760  cd ..
+  761  go build main.go
+  762  ll
+  763  cd httpserver 
+  764  ll
+  765  less main.go
+  766  go run main
+  767  vi Dockerfile2
+  768  pwd
+  769  ll
+  770  cd build
+  771  ll
+  772  cd ..
+  773  ll
+  774  less build
+  775  less build.sh 
+  776  less Dockerfile2 
+  777  less Dockerfile
+  778  less Dockerfile2
+  779  rm -rf httpserver 
+  780  ll
+  781  sudo docker build -f Dockerfile2 . -t httpserver:v1.0.3
+  782  ll
+  783  cd build
+  784  ll
+  785  ls
+  786  sudo docker images
+  787  sudo docker run -d ac12bd98f07e
+  788  sudo docker ps
+  789  sudo docker logs  da9aa347bff1
+  790  curl http://localhost:8082
+  791  ll
+  792  cd ..
+  793  ll
+  794  go build main.go
+  795  ll
+  796  ./main
+  797  sudo ./main
+  798  less /usr/local/go/src/log/log.go
+  799  ll
+  800  ./main 
+  801  less /home/deploy/go/src/github.com/golang/httpserver/main.go
+  802  vi /home/deploy/go/src/github.com/golang/httpserver/main.go
+  803  ./main
+  804  sudo ./main
+  805  vi main.go
+  806  go build main.go
+  807  ./main
+  808  sudo docker build -f Dockerfile2 . -t httpserver:v1.0.3
+  809  sudo docker images
+  810  sudo docker run -d db5f54ae1f42
+  811  sudo docker ps 
+  812  ps aux|grep httpserver
+  813  sudo docker kill 4eddb8c9bfb6 da9aa347bff1 364e1edf10f9
+  814  sudo docker ps
+  815  sudo docker image
+  816  sudo docker images
+  817  sudo docker image rm db5f54ae1f42 58a8a37cf12f ac12bd98f07e 
+  818  sudo docker image rm -f db5f54ae1f42 58a8a37cf12f ac12bd98f07e 
+  819  sudo docker images
+  820  sudo docker image rm -f ab5d859de29e
+  821  sudo docker images
+  822  sudo docker images|grep http
+  823  sudo docker image rm -f 853abc99be5d
+  824  sudo docker images|grep http
+  825  ll
+  826  sudo docker build -f Dockerfile2 . -t httpserver:v1.0.3
+  827  sudo docker images|grep http
+  828  sudo docker run -d fe83753b88a3
+  829  sudo docker ps
+  830  id
+  831  sudo docker logs -f dae8fb83e633
+  832  sudo docker logs dae8fb83e633
+  833  less Dockerfile2
+  834  ps aux|grep httpserver
+  835  vi main.go
+  836  sudo docker build -f Dockerfile2 . -t httpserver:v1.0.3
+  837  sudo docker images|grep http
+  838  sudo docker ps
+  839  sudo docker kill dae8fb83e633
+  840  sudo docker run -d 127467adec8f
+  841  sudo docker logs  127467adec8f
+  842  sudo docker ps
+  843  sudo docker logs bf2d3a62820c
+  844  vi main.go
+  845  sudo docker kill bf2d3a62820c
+  846  sudo docker build -f Dockerfile2 . -t httpserver:v1.0.3
+  847  sudo docker images|grep http
+  848  sudo docker run -d 14b0be7863dd
+  849  sudo docker ps
+  850  sudo docker logs c68155c9172e
+  851  sudo docker kill c68155c9172e
+  852  sudo docker run -d 14b0be7863dd
+  853  sudo docker ps
+  854  sudo docker logs 1dc121dc492b
+  855  vi main.go
+  856  sudo docker build -f Dockerfile2 . -t httpserver:v1.0.3
+  857  vi main.go
+  858  sudo docker build -f Dockerfile2 . -t httpserver:v1.0.3
+  859  sudo docker images|grep http
+  860  sudo docker image rm -f 9bd8dc89f7dd
+  861  sudo docker ps
+  862  sudo docker kill 1dc121dc492b
+  863  sudo docker ps
+  864  sudo docker build -f Dockerfile2 . -t httpserver:v1.0.3
+  865  sudo docker images|grep http
+  866  sudo docker run -d 7483d0e5bf8e
+  867  sudo docker ps
+  868  sudo docker logs daf50ec755de
+  869  sudo docker log daf50ec755de
+  870  sudo docker logs daf50ec755de
+  871  sudo docker logs 7483d0e5bf8e
+  872  sudo docker logs daf50ec755de
+  873  vi main.go
+  874  sudo docker build -f Dockerfile2 . -t httpserver:v1.0.3
+  875  vi main.go
+  876  sudo docker build -f Dockerfile2 . -t httpserver:v1.0.3
+  877  sudo docker images|grep http
+  878  sudo docker run -d b5904f394d33
+  879  sudo docker ps
+  880  sudo docker logs 298b0c569ec1
+  881  sudo docker kill daf50ec755de
+  882  sudo docker logs 298b0c569ec1
+  883  vi main.go
+  884  sudo docker build -f Dockerfile2 . -t httpserver:v1.0.3
+  885  sudo docker images|grep http
+  886  sudo docker ps
+  887  sudo docker kill 298b0c569ec1
+  888  sudo docker ps
+  889  sudo docker run -d 9fab2150de3e
+  890  sudo docker logs 9fab2150de3e
+  891  sudo docker ps
+  892  sudo docker logs f79b42d09db4
+  893  vi main.go
+  894  sudo docker build -f Dockerfile2 . -t httpserver:v1.0.3
+  895  sudo docker images|grep http
+  896  sudo docker run -d 80fe238e1d4f
+  897  sudo docker ps
+  898  sudo docker logs 8e82579f26ff
+  899  vi main.go
+  900  ll
+  901  vi go.mod 
+  902  sudo docker build -f Dockerfile2 . -t httpserver:v1.0.3
+  903  less /httpserver/go.mod
+  904  vi Dockerfile2 
+  905  ll
+  906  vi go.mod 
+  907  sudo docker build -f Dockerfile2 . -t httpserver:v1.0.3
+  908  sudo docker images|grep http
+  909  sudo docker ps
+  910  sudo docker kill f79b42d09db4
+  911  sudo docker logs 8e82579f26ff
+  912  ps axu|grep httpserver
+  913  sudo netstat -anpt|grep 19427
+  914  sudo docker exec -it 8e82579f26ff sh
+  915  sudo docker ps
+  916  sudo docker kill 8e82579f26ff
+  917  sudo docker ps
+  918  vi Dockerfile2
+  919  vi main.go
+  920  sudo docker build -f Dockerfile2 . -t httpserver:v1.0.3
+  921  sudo docker images
+  922  sudo docker images|grep https
+  923  sudo docker run -d a8deb1397363
+  924  sudo docker ps
+  925  sudo docker logs ab1fd8cc38c1
+  926  sudo docker exec -it ab1fd8cc38c1 sh
+  927  sudo docker exec -it 92ef0f66de9c sh
+  928  vi Dockerfile2
+  929  sudo netstat -anpt|grep 8082
+  930  sudo netstat -anpt|grep 80
+  931  curl http://localhost
+  932  curl http://localhost:8082
+  933  curl http://127.0.0.1:8082
+  934  sudo netstat -anpt|grep 80
+  935  sudo netstat -anpt|grep 808
+  936  sudo docker ps
+  937  sudo docker kill 359b42358361 5c996c9d19f8
+  938  sudo docker ps
+  939  sudo docker images|grep https
+  940  sudo docker run --help
+  941  sudo docker images|grep https
+  942  sudo docker run -d a8deb1397363 -P
+  943  sudo docker images|grep https
+  944  sudo docker ps
+  945  sudo netstat -anpt|grep 8082
+  946  sudo docker images|grep https
+  947  sudo docker run -d --name httpserver -p 8081:80
+  948  sudo docker run --name httpserver -p 8081:80 -d
+  949  sudo docker run -p 8081:80 -d --name httpserver
+  950  sudo docker run -d -p 8081:80 --name httpserver
+  951  sudo docker run -d -p 8081:80 -it a8deb1397363
+  952  sudo docker ps
+  953  curl http://localhost:8081
+  954  sudo docker kill a99b6df27d90
+  955  curl http://localhost:8081
+  956  sudo docker ps
+  957  curl http://localhost:8081/healthz
+  958  curl http://localhost:8081/healthz -v
+  959  curl http://localhost:8081/healthz -H
+  960  curl http://localhost:8081/healthz -V
+  961  curl http://localhost:8081/healthz -v
+  962  sudo docker images|grep http
+  963  sudo docker tag httpserver:v1.0.3 njq0506/httpserver:v1.0.3
+  964  sudo docker push njq0506/httpserver:v1.0.3
+  965  pwd
+  966  cd go/src/github.com/golang/httpserver
+  967  ll
+  968  vi main.go
+  969  cd go/src/github.com/golang/httpserver
+  970  ll
+  971  cat Dockerfile2 
+  972  cat main.go
+  973  sudo docker build -f Dockerfile2 . -t httpserver:v1.0.3
+  974  sudo docker tag httpserver:v1.0.3 njq0506/httpserver:v1.0.3
+  975  sudo docker push njq0506/httpserver:v1.0.3
+  976  sudo docker build -f Dockerfile2 . -t httpserver:v1.0.4
+  977  sudo docker tag httpserver:v1.0.4 njq0506/httpserver:v1.0.4
+  978  vi main.go
+  979  sudo docker push njq0506/httpserver:v1.0.4
+  980  k get pod
+  981  ll
+  982  cd go/src/github.com/golang/
+  983  ll
+  984  cd httpserver
+  985  ll
+  986  cat Dockerfile2 
+  987  cat main.go
+  988  ll
+  989  vi main.go
+  990  sudo docker build -f Dockerfile2 . -t httpserver:v1.0.4
+  991  sudo docker images
+  992  sudo docker push njq0506/httpserver:v1.0.4
+  993  sudo docker build -f Dockerfile2 . -t httpserver:v1.0.5
+  994  sudo docker tag httpserver:v1.0.5 njq0506/httpserver:v1.0.5
+  995  sudo docker push njq0506/httpserver:v1.0.5
+  996  less /proc/cpuinfo 
+  997  less /proc/meminfo 
+  998  pwd
+  999  ll
+ 1000  cd go/src/github.com/golang/
+ 1001  ll
+ 1002  cd httpserver
+ 1003  ll
+ 1004  sudo docker ps 
+ 1005  sudo docker images 
+ 1006  cd ..
+ 1007  pwd
+ 1008  cd ..
+ 1009  ll
+ 1010  git clone git@github.com:allen0115/cn.git
+ 1011  git clone https://github.com/allen0115/cn.git
+ 1012  pwd
+ 1013  ll
+ 1014  cd golang/
+ 1015  ll
+ 1016  cd httpserver
+ 1017  ll
+ 1018  cat Dockerfile2
+ 1019  pwd
+ 1020  ll
+ 1021  mv main.go main.go-0731.bk
+ 1022  vi main.go
+ 1023  mkdir metrics
+ 1024  cd metrics/
+ 1025  ll
+ 1026  vi metrics.go
+ 1027  cd ..
+ 1028  go build main.go
+ 1029  sudo docker build -f Dockerfile2 . -t httpserver-metrics:v1.0.0
+ 1030  ll
+ 1031  history > tmp

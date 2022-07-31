@@ -1,0 +1,11 @@
+FROM golang:1.18 AS builder
+ENV CGO_ENABLE=0
+ENV GO111MODULE=on
+ENV GOPROXY=http://goproxy.cn,direct
+WORKDIR /build
+RUN GOOS=linux go build -o httpserver main.go
+
+FROM busybox
+COPY --from=builder /build/httpserver /
+EXPOSE 8082
+ENTRYPOINT ["/httpserver"]
