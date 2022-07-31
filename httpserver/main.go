@@ -43,12 +43,12 @@ func main() {
 		Handler: mux,
 	}
 
-	//svr.ListenAndServe()
-	go func() {
-		if err := svr.ListenAndServe(); err != nil && err != http.ErrServerClosed {
-			log.Fatalf("listen: $s \n", err)
-		}
-	}()
+	svr.ListenAndServe()
+	//go func() {
+	//	if err := svr.ListenAndServe(); err != nil && err != http.ErrServerClosed {
+	//		log.Fatalf("listen: $s \n", err)
+	//	}
+	//}()
 	//err := http.ListenAndServe(":80", nil)
 	log.Printf("333, %v", svr)
 	//if err != nil {
