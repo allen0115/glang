@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="v1.0.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/httpserver/pkg/mod/cache/download/github.com/pmezard/go-difflib/@v/v1.0.0.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="v0.32.1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/httpserver/pkg/mod/cache/download/github.com/prometheus/common/@v/v0.32.1.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

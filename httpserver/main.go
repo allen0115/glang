@@ -1,10 +1,10 @@
 package main
 
 import (
-	"httpserver/metrics"
 	"flag"
 	"fmt"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
+	"httpserver/metrics"
 	"io"
 	"k8s.io/apimachinery/pkg/util/rand"
 	"log"
@@ -43,7 +43,12 @@ func main() {
 		Handler: mux,
 	}
 
-	svr.ListenAndServe()
+	//svr.ListenAndServe()
+	go func() {
+		if err := svr.ListenAndServe(); err != nil && err != http.ErrServerClosed {
+			log.Fatalf("listen: $s \n", err)
+		}
+	}()
 	//err := http.ListenAndServe(":80", nil)
 	log.Printf("333, %v", svr)
 	//if err != nil {
@@ -139,4 +144,3 @@ func metricHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Custom-Header", "Awesome")
 	io.WriteString(w, "200")
 }
-

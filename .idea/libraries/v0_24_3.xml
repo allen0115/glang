@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="v0.24.3">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/httpserver/pkg/mod/cache/download/k8s.io/apimachinery/@v/v0.24.3.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

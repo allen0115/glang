@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="v2.1.2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/httpserver/pkg/mod/cache/download/github.com/cespare/xxhash/v2/@v/v2.1.2.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

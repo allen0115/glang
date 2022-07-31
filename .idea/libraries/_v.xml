@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="@v">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/httpserver/pkg/mod/cache/download/gopkg.in/check.v1/@v/v0.0.0-20161208181325-20d25e280405.zip!/" />
+      <root url="jar://$PROJECT_DIR$/httpserver/pkg/mod/cache/download/gopkg.in/check.v1/@v/v1.0.0-20200227125254-8fa46927fb4f.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
